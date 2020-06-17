@@ -25,7 +25,9 @@
  *    // your code here
  * }
  */
-
+const yelling = (array) => {
+  return array.map(word => word.toUpperCase())
+}
 // ...
 
 /**
@@ -35,6 +37,10 @@
  * the numbers multiplied by 2
  */
 
+const doubleTrouble = (array) => {
+  return array.map(num => num * 2)
+}
+// ...
 // ...
 
 /*
@@ -43,20 +49,27 @@
  * suffixed with " is at index X" where X is the index of the element
  */
 
+const stringyIndexes = (array) => {
+  return array.map((str, index) => str + " is at index " + index.toString())
+}
 // ...
 
 /*
  * 4) Define a function onlyTheEvenSurvive that accepts an array of
  * numbers and returns only the elements that are even
  */
-
+const onlyTheEvenSurvive = (array) => {
+  return array.filter(num => num % 2 === 0)
+}
 // ...
 
 /*
  * 5) Define a function onlyTheEvenIndexedSurvive that accepts an array of
  * numbers and returns only the elements at indexes that are even
  */
-
+const onlyTheEvenIndexedSurvive = (array) => {
+  return array.filter((_, index) => index % 2 === 0)
+}
 // ...
 
 /*
@@ -72,7 +85,14 @@
  *   score: 99
  * }
  */
-
+const bestMoviesOfTheYear = (array, year) => {
+  return array.reduce((validMovies, movie) => {
+    if (movie.year == year && movie.score > 90) {
+      validMovies.push(movie.name)
+    }
+    return validMovies
+  }, []);
+}
 // ...
 
 /*
@@ -82,13 +102,17 @@
  */
 
 // ...
-
+const everyoneIsOdd = (array)  => {
+  return array.every(num => num % 2 != 0)
+}
 /*
  * 8) Define a function findTheNeedle that accepts an array of
  * strings and returns the one string that contains the word
  * `needle` inside
  */
-
+const findTheNeedle = (array) => {
+  return array.find(str => str.includes('needle'))
+}
 // ...
 
 /*
@@ -96,6 +120,9 @@
  * strings and returns the index of the string that contains
  *  the word `needle` inside
  */
+const findTheNeedleIndex = (array) => {
+  return array.findIndex(str => str.includes('needle'))
+}
 
 // ...
 
@@ -104,7 +131,9 @@
  * strings and returns true if at least one string is exactly
  * four characters long
  */
-
+const someoneToLove = (array) => {
+  return array.find(str => str.length == 4) != null
+}
 // ...
 
 /*
@@ -115,7 +144,13 @@
  *
  * So no using forEach, map, filter, reduce, etc.
  */
-
+const mapYourself = (array) => {
+  let result = []
+  for (let num of array) {
+    result.push(num * 2)
+  }
+  return result
+}
 // ...
 
 /*
@@ -127,6 +162,15 @@
  *
  * So no using forEach, map, filter, reduce, etc.
  */
+const filterYourself = (array) => {
+  let result = []
+  for (let num of array) {
+    if (num % 2 == 0) {
+      result.push(num)
+    }
+  }
+  return result
+}
 
 // ...
 
@@ -139,7 +183,14 @@
  *
  * So no using forEach, map, filter, reduce, etc.
  */
-
+const everyYourself = (array) => {
+  for (let num of array) {
+    if (num % 2 != 0) {
+      return false
+    }
+  }
+  return true
+}
 // ...
 
 /**
